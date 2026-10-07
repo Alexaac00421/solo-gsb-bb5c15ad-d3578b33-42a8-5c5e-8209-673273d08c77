@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>条款草案协作台</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#/">📜 条款草案协作台</a>
+  <span class="subtitle">小型标准工作组 · 本地版</span>
+  <input id="globalAuthor" class="author-input" placeholder="编辑者署名（将记忆）"
+         maxlength="100" autocomplete="off">
+</header>
+
+<main id="view"></main>
+
+<div id="toast" class="toast hidden"></div>
+
+<footer class="footer">
+  数据保存在本地 SQLite · 发布快照不可变 · 待决未清不能发布
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

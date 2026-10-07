@@ -1,0 +1,23 @@
+services:
+  clause-draft:
+    build: .
+    image: clause-draft:latest
+    container_name: clause-draft
+    ports:
+      - "8000:8000"          # 宿主机端口:容器端口；如被占用可改为 "8080:8000"
+    volumes:
+      - clause-data:/data    # SQLite 数据库持久化命名卷
+    environment:
+      - CLAUSE_HOST=0.0.0.0
+      - CLAUSE_PORT=8000
+      - CLAUSE_DB_PATH=/data/clauses.db
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/api/drafts').status==200 else 1)"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+volumes:
+  clause-data:
