@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      APP_DB: /data/app.db
+      APP_PORT: "8000"
+      SEED_DEMO: "1"        # 首次启动写入演示草案；设为 0 关闭
+    volumes:
+      - clause_data:/data   # SQLite 数据持久化
+    restart: unless-stopped
+
+volumes:
+  clause_data:

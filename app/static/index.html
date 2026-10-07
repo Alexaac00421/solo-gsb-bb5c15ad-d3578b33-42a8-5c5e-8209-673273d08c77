@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>条款草案协作系统</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>条款草案协作系统</h1>
+    <label>当前编辑者：<input id="author" placeholder="署名，如 zhang"></label>
+  </header>
+  <div id="banner" class="hidden"></div>
+  <div class="layout">
+    <aside>
+      <h2>草案</h2>
+      <ul id="draft-list"></ul>
+      <button id="new-draft-btn">＋ 新建草案</button>
+      <form id="new-draft-form" class="hidden">
+        <input id="nd-title" placeholder="草案标题" required>
+        <div id="nd-clauses"></div>
+        <button type="button" id="nd-add-clause">＋ 添加条款</button>
+        <button type="submit">创建</button>
+      </form>
+    </aside>
+    <main id="main">
+      <p class="muted">请选择或新建一个草案。</p>
+    </main>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
